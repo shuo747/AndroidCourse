@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">AndroidCourse</string>
+    <string name="homework_1">作业一</string>
+    <string name="guide_app_name">输入app要显示的名字</string>
+    <string name="homework1_title">辽宁石油化工大学学生信息系统</string>
+    <string name="homework1_login">登录</string>
+    <string name="homework1_regist">注册</string>
+</resources>
