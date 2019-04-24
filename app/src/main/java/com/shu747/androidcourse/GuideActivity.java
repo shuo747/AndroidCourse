@@ -11,6 +11,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.shu747.androidcourse.activity.Homework2Activity;
 import com.shu747.androidcourse.activity.homework1Activity;
 import com.shu747.androidcourse.model.BasicData;
 
@@ -22,6 +23,7 @@ public class GuideActivity extends AppCompatActivity implements View.OnClickList
 
     private EditText et_guide_name;
     private Button bt_guide_1;
+    private Button bt_guide_2;
     private Context context = this;
 
     @Override
@@ -42,6 +44,8 @@ public class GuideActivity extends AppCompatActivity implements View.OnClickList
         et_guide_name = (EditText) findViewById(R.id.et_guide_name);
         bt_guide_1 = (Button) findViewById(R.id.bt_guide_1);
         bt_guide_1.setOnClickListener(this);
+        bt_guide_2 = (Button) findViewById(R.id.bt_guide_2);
+        bt_guide_2.setOnClickListener(this);
     }
 
     @Override
@@ -51,11 +55,15 @@ public class GuideActivity extends AppCompatActivity implements View.OnClickList
             case R.id.bt_guide_1:
                 startA(homework1Activity.class);
                 break;
+            case R.id.bt_guide_2:
+                startA(Homework2Activity.class);
+                break;
         }
     }
 
     private void startA(Class activity) {
-        startActivity(new Intent(context,activity));
+        if(submit())
+            startActivity(new Intent(context,activity));
     }
 
     private boolean submit() {

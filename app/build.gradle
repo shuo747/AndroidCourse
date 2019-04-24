@@ -38,4 +38,5 @@ dependencies {
     //MID基础包
     implementation 'com.tencent.mid:mid:3.73-release'
     implementation 'org.litepal.android:java:3.0.0'
+    implementation 'com.android.support:recyclerview-v7:27.0.2'
 }
