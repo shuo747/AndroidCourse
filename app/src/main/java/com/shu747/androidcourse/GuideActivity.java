@@ -12,11 +12,15 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.shu747.androidcourse.activity.Homework2Activity;
+import com.shu747.androidcourse.activity.Homework3Activity;
 import com.shu747.androidcourse.activity.homework1Activity;
 import com.shu747.androidcourse.model.BasicData;
+import com.tencent.stat.StatService;
 
 import org.litepal.LitePal;
 import org.litepal.crud.LitePalSupport;
+
+import java.util.Properties;
 
 public class GuideActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -24,6 +28,7 @@ public class GuideActivity extends AppCompatActivity implements View.OnClickList
     private EditText et_guide_name;
     private Button bt_guide_1;
     private Button bt_guide_2;
+    private Button bt_guide_3;
     private Context context = this;
 
     @Override
@@ -46,6 +51,8 @@ public class GuideActivity extends AppCompatActivity implements View.OnClickList
         bt_guide_1.setOnClickListener(this);
         bt_guide_2 = (Button) findViewById(R.id.bt_guide_2);
         bt_guide_2.setOnClickListener(this);
+        bt_guide_3 = (Button) findViewById(R.id.bt_guide_3);
+        bt_guide_3.setOnClickListener(this);
     }
 
     @Override
@@ -58,12 +65,21 @@ public class GuideActivity extends AppCompatActivity implements View.OnClickList
             case R.id.bt_guide_2:
                 startA(Homework2Activity.class);
                 break;
+            case R.id.bt_guide_3:
+                startA(Homework3Activity.class);
+                break;
         }
     }
 
     private void startA(Class activity) {
-        if(submit())
+        if(submit()){
+            Properties prop = new Properties();
+            prop.setProperty("userinfo", et_guide_name.getText().toString().trim());
+            prop.setProperty("activity", activity.getName());
+            StatService.trackCustomKVEvent(this, "enter", prop);
             startActivity(new Intent(context,activity));
+        }
+
     }
 
     private boolean submit() {

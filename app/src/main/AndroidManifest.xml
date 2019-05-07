@@ -18,8 +18,10 @@
             </intent-filter>
         </activity>
         <activity android:name=".MainActivity" />
-        <activity android:name=".activity.homework1Activity"></activity>
-        <activity android:name=".activity.Homework2Activity"></activity>
+        <activity android:name=".activity.homework1Activity" />
+        <activity android:name=".activity.Homework2Activity" />
+        <activity android:name=".activity.Homework3Activity" />
+        <activity android:name=".activity.Homework3AssistActivity"></activity>
     </application>
 
 </manifest>

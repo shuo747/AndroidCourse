@@ -84,13 +84,13 @@
         android:layout_marginStart="8dp"
         android:hint="请输入密码"
         android:inputType="textPassword"
-        app:layout_constraintBottom_toTopOf="@+id/rg_homework1"
+        app:layout_constraintBottom_toTopOf="@+id/rg_homework3"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/tv_homework1_pwd" />
 
 
     <RadioGroup
-        android:id="@+id/rg_homework1"
+        android:id="@+id/rg_homework3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
