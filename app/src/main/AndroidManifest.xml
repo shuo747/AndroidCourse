@@ -21,7 +21,8 @@
         <activity android:name=".activity.homework1Activity" />
         <activity android:name=".activity.Homework2Activity" />
         <activity android:name=".activity.Homework3Activity" />
-        <activity android:name=".activity.Homework3AssistActivity"></activity>
+        <activity android:name=".activity.Homework3AssistActivity" />
+        <activity android:name=".activity.experiment.Exp1Activity"></activity>
     </application>
 
 </manifest>

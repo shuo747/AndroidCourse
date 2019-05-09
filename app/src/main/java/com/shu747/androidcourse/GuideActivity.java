@@ -13,6 +13,7 @@ import android.widget.Toast;
 
 import com.shu747.androidcourse.activity.Homework2Activity;
 import com.shu747.androidcourse.activity.Homework3Activity;
+import com.shu747.androidcourse.activity.experiment.Exp1Activity;
 import com.shu747.androidcourse.activity.homework1Activity;
 import com.shu747.androidcourse.model.BasicData;
 import com.tencent.stat.StatService;
@@ -30,6 +31,7 @@ public class GuideActivity extends AppCompatActivity implements View.OnClickList
     private Button bt_guide_2;
     private Button bt_guide_3;
     private Context context = this;
+    private Button bt_guide_4;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,6 +55,8 @@ public class GuideActivity extends AppCompatActivity implements View.OnClickList
         bt_guide_2.setOnClickListener(this);
         bt_guide_3 = (Button) findViewById(R.id.bt_guide_3);
         bt_guide_3.setOnClickListener(this);
+        bt_guide_4 = (Button) findViewById(R.id.bt_guide_4);
+        bt_guide_4.setOnClickListener(this);
     }
 
     @Override
@@ -67,6 +71,8 @@ public class GuideActivity extends AppCompatActivity implements View.OnClickList
                 break;
             case R.id.bt_guide_3:
                 startA(Homework3Activity.class);
+            case R.id.bt_guide_4:
+                startA(Exp1Activity.class);
                 break;
         }
     }

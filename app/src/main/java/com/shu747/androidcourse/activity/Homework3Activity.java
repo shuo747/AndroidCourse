@@ -89,15 +89,5 @@ public class Homework3Activity extends AppCompatActivity implements View.OnClick
 
     }
 
-    @Override
-    protected void onResume() {
-        super.onResume();
-        StatService.onResume(this);
-    }
 
-    @Override
-    protected void onPause() {
-        super.onPause();
-        StatService.onPause(this);
-    }
 }
