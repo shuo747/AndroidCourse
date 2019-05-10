@@ -18,7 +18,7 @@ import org.litepal.LitePal;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Homework2Activity extends AppCompatActivity implements View.OnClickListener {
+public class Homework2Activity extends MyActivity implements View.OnClickListener {
 
     private Button bt_homework2_add;
     private RecyclerView rv_homework2_main;
@@ -71,7 +71,7 @@ public class Homework2Activity extends AppCompatActivity implements View.OnClick
         @Override
         public ViewHolder onCreateViewHolder(ViewGroup viewGroup, int viewType) {
             View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.item_homework2_rv,viewGroup, false );
-            ViewHolder vh =  new  ViewHolder(view);
+            ViewHolder vh =  new ViewHolder(view);
             return  vh;
         }
         //将数据与界面进行绑定的操作

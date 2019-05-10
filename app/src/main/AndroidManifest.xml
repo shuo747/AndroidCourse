@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.shu747.androidcourse">
 
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
+
     <application
         android:name=".MyApplication"
         android:allowBackup="true"
@@ -22,7 +24,28 @@
         <activity android:name=".activity.Homework2Activity" />
         <activity android:name=".activity.Homework3Activity" />
         <activity android:name=".activity.Homework3AssistActivity" />
-        <activity android:name=".activity.experiment.Exp1Activity"></activity>
+        <activity android:name=".activity.experiment.Exp1Activity" />
+        <activity android:name=".activity.experiment.Exp2Activity" />
+        <activity android:name=".activity.experiment.Exp2AssistActivity">
+            <intent-filter>
+                <action android:name="com.shuo747.AndroidCourse.exp2assist.ACTION" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".activity.experiment.Exp3Activity"/>
+        <activity android:name=".activity.experiment.Exp3AssistActivity" />
+
+        <receiver
+            android:name=".activity.experiment.ForceOfflineReceiver"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="com.shuo747.AndroidCourse.exp3.FORCE_OFFLINE" />
+            </intent-filter>
+        </receiver>
+
+        <activity android:name=".activity.experiment.Exp4Activity"></activity>
     </application>
 
 </manifest>

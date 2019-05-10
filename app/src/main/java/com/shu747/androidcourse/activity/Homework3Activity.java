@@ -12,12 +12,13 @@ import android.widget.RadioGroup;
 import android.widget.Toast;
 
 import com.shu747.androidcourse.R;
+import com.shu747.androidcourse.activity.experiment.util.ActivityCollector;
 import com.shu747.androidcourse.model.BasicData;
 import com.tencent.stat.StatService;
 
 import org.litepal.LitePal;
 
-public class Homework3Activity extends AppCompatActivity implements View.OnClickListener {
+public class Homework3Activity extends MyActivity implements View.OnClickListener {
 
     private EditText et_homework3_username;
     private EditText et_homework3_password;
@@ -30,10 +31,17 @@ public class Homework3Activity extends AppCompatActivity implements View.OnClick
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_homework3);
+        ActivityCollector.addActivity(this);
         initView();
         BasicData basicData = LitePal.findLast(BasicData.class);
         if (basicData != null)
             setTitle(basicData.getName());
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        ActivityCollector.removeActivity(this);
     }
 
     private void initView() {

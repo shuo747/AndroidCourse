@@ -8,7 +8,7 @@ import com.shu747.androidcourse.model.BasicData;
 
 import org.litepal.LitePal;
 
-public class homework1Activity extends AppCompatActivity {
+public class homework1Activity extends MyActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

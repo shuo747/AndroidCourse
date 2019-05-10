@@ -52,6 +52,30 @@
         android:text="实验一"
         app:layout_constraintTop_toBottomOf="@+id/bt_guide_3" />
 
+    <Button
+        android:id="@+id/bt_guide_5"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="实验二"
+        app:layout_constraintTop_toBottomOf="@+id/bt_guide_4" />
+
+    <Button
+        android:id="@+id/bt_guide_6"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="实验三"
+        app:layout_constraintTop_toBottomOf="@+id/bt_guide_5" />
+
+    <Button
+        android:id="@+id/bt_guide_7"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="实验四"
+        app:layout_constraintTop_toBottomOf="@+id/bt_guide_6" />
+
 
 
 </android.support.constraint.ConstraintLayout>
