@@ -38,7 +38,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:text="实验一"
+        android:text="传递数据到上个activity"
         app:layout_constraintTop_toBottomOf="@+id/et_exp2_data2" />
 
     <TextView

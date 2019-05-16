@@ -57,6 +57,7 @@ public class Exp2AssistActivity extends MyActivity implements View.OnClickListen
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.bt_exp2_explicit2:
+                submit();
                 break;
         }
     }
