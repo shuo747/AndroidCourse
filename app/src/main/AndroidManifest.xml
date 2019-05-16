@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.shu747.androidcourse">
 
-    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
 
     <application
         android:name=".MyApplication"
@@ -33,7 +33,7 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-        <activity android:name=".activity.experiment.Exp3Activity"/>
+        <activity android:name=".activity.experiment.Exp3Activity" />
         <activity android:name=".activity.experiment.Exp3AssistActivity" />
 
         <receiver
@@ -45,7 +45,9 @@
             </intent-filter>
         </receiver>
 
-        <activity android:name=".activity.experiment.Exp4Activity"></activity>
+        <activity android:name=".activity.experiment.Exp4Activity" />
+        <activity android:name=".activity.Homework4Activity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"></activity>
     </application>
 
 </manifest>

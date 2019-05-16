@@ -12,6 +12,7 @@ import android.widget.Toast;
 
 import com.shu747.androidcourse.activity.Homework2Activity;
 import com.shu747.androidcourse.activity.Homework3Activity;
+import com.shu747.androidcourse.activity.Homework4Activity;
 import com.shu747.androidcourse.activity.experiment.Exp1Activity;
 import com.shu747.androidcourse.activity.experiment.Exp2Activity;
 import com.shu747.androidcourse.activity.experiment.Exp3Activity;
@@ -36,6 +37,8 @@ public class GuideActivity extends AppCompatActivity implements View.OnClickList
     private Button bt_guide_5;
     private Button bt_guide_6;
     private Button bt_guide_7;
+    private Button bt_guide_8;
+    private Button bt_guide_9;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,6 +70,10 @@ public class GuideActivity extends AppCompatActivity implements View.OnClickList
         bt_guide_6.setOnClickListener(this);
         bt_guide_7 = (Button) findViewById(R.id.bt_guide_7);
         bt_guide_7.setOnClickListener(this);
+        bt_guide_8 = (Button) findViewById(R.id.bt_guide_8);
+        bt_guide_8.setOnClickListener(this);
+        bt_guide_9 = (Button) findViewById(R.id.bt_guide_9);
+        bt_guide_9.setOnClickListener(this);
     }
 
     @Override
@@ -92,6 +99,11 @@ public class GuideActivity extends AppCompatActivity implements View.OnClickList
                 break;
             case R.id.bt_guide_7:
                 startA(Exp4Activity.class);
+                break;
+            case R.id.bt_guide_8:
+                startA(Homework4Activity.class);
+                break;
+            case R.id.bt_guide_9:
                 break;
         }
     }

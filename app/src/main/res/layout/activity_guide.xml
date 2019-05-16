@@ -76,6 +76,22 @@
         android:text="实验四"
         app:layout_constraintTop_toBottomOf="@+id/bt_guide_6" />
 
+    <Button
+        android:id="@+id/bt_guide_8"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="作业四"
+        app:layout_constraintTop_toBottomOf="@+id/bt_guide_7" />
+
+    <Button
+        android:id="@+id/bt_guide_9"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="作业五"
+        app:layout_constraintTop_toBottomOf="@+id/bt_guide_8" />
+
 
 
 </android.support.constraint.ConstraintLayout>
