@@ -1,9 +1,7 @@
 package com.shu747.androidcourse.activity.experiment;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
@@ -11,7 +9,6 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.shu747.androidcourse.R;
-import com.shu747.androidcourse.activity.Homework3AssistActivity;
 import com.shu747.androidcourse.activity.MyActivity;
 
 public class Exp3Activity extends MyActivity implements View.OnClickListener {
@@ -28,9 +25,9 @@ public class Exp3Activity extends MyActivity implements View.OnClickListener {
     }
 
     private void initView() {
-        et_exp3_username = (EditText) findViewById(R.id.et_exp3_username);
-        et_exp3_password = (EditText) findViewById(R.id.et_exp3_password);
-        bt_exp3_login = (Button) findViewById(R.id.bt_exp3_login);
+        et_exp3_username = (EditText) findViewById(R.id.et_exam1_username);
+        et_exp3_password = (EditText) findViewById(R.id.et_exam1_password);
+        bt_exp3_login = (Button) findViewById(R.id.bt_exam1_login);
 
         et_exp3_username.setText("test");
         et_exp3_password.setText("test");
@@ -40,7 +37,7 @@ public class Exp3Activity extends MyActivity implements View.OnClickListener {
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-            case R.id.bt_exp3_login:
+            case R.id.bt_exam1_login:
                 submit();
                 break;
         }

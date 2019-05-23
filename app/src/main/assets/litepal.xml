@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <litepal>
     <dbname value="androidcourse" />
-    <version value="3" />
+    <version value="4" />
     <list>
         <mapping class="com.shu747.androidcourse.model.BasicData"/>
         <mapping class="com.shu747.androidcourse.model.Matter"/>
+        <mapping class="com.shu747.androidcourse.model.User"/>
     </list>
     <storage value="internal" />
 </litepal>

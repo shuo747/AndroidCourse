@@ -10,6 +10,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.shu747.androidcourse.activity.Exam1Activity;
 import com.shu747.androidcourse.activity.Homework2Activity;
 import com.shu747.androidcourse.activity.Homework3Activity;
 import com.shu747.androidcourse.activity.Homework4Activity;
@@ -104,6 +105,7 @@ public class GuideActivity extends AppCompatActivity implements View.OnClickList
                 startA(Homework4Activity.class);
                 break;
             case R.id.bt_guide_9:
+                startA(Exam1Activity.class);
                 break;
         }
     }
