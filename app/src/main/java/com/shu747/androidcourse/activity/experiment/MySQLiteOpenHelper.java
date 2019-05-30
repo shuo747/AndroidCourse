@@ -1,10 +1,12 @@
 package com.shu747.androidcourse.activity.experiment;
 
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -14,6 +16,7 @@ import java.util.ArrayList;
  * @Date: 2019/5/10 15:48
  */
 public class MySQLiteOpenHelper extends SQLiteOpenHelper {
+    public static final String[] columns = {"id","name","age","city"};
     public static final String CREATE_STUDENT = "create table Student ("
             + "id integer primary key, "
             + "name text,"
@@ -62,6 +65,22 @@ public class MySQLiteOpenHelper extends SQLiteOpenHelper {
         this.db = getWritableDatabase();
         db.execSQL("INSERT INTO Student (id , name , age , city)"
                 + "VALUES (?,?,?,?)", new String[]{id, name, age, city});
+        db.close();
+    }
+
+    public void deleteStu(String conditions) {
+        this.db = getWritableDatabase();
+        //db.execSQL("delete from Student"+ conditions +";");
+        //Log.e("sql",conditions);
+        db.execSQL("delete from Student "+conditions);
+        db.close();
+    }
+
+    public void updateStu(String conditions) {
+        this.db = getWritableDatabase();
+        //db.execSQL("delete from Student"+ conditions +";");
+        Log.e("sql",conditions);
+        db.execSQL("update Student set "+conditions);
         db.close();
     }
 

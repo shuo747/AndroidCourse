@@ -94,13 +94,13 @@ public class Exp4Activity extends MyActivity implements View.OnClickListener {
                 sbLog.append(MySQLiteOpenHelper.CREATE_STUDENT+"\n");
                 break;
             case R.id.add_data:
-                showLayoutDialog();
+                showLayoutDialog(1);
                 break;
             case R.id.update_data:
-
+                showLayoutDialog(2);
                 break;
             case R.id.delete_data:
-
+                showLayoutDialog(3);
                 break;
             case R.id.query_data:
                 myAdapter.lists = mySQLiteOpenHelper.queryStu();
@@ -108,7 +108,7 @@ public class Exp4Activity extends MyActivity implements View.OnClickListener {
                 sbLog.append("select * from Student\n");
                 break;
             case R.id.replace_data:
-                if (!submit()) return;
+                //if (!submit()) return;
                 break;
 
         }
@@ -117,7 +117,27 @@ public class Exp4Activity extends MyActivity implements View.OnClickListener {
     }
 
 
-    private void showLayoutDialog() {
+    private void showLayoutDialog(final int flag) {
+        /**
+         * flag:
+         * 1 insert
+         * 2 update
+         * 3 delete
+         *
+         */
+        String title = "insert";
+        switch (flag) {
+            case  1:
+                title = "insert";
+                break;
+            case  2:
+                title = "update";
+                break;
+            case  3:
+                title = "delete";
+                break;
+        }
+
         //加载布局并初始化组件
         View dialogView = LayoutInflater.from(this).inflate(R.layout.dialog_layout_exp4_insert, null);
         et_exp4_dialog_id = (EditText) dialogView.findViewById(R.id.et_exp4_dialog_id);
@@ -127,16 +147,29 @@ public class Exp4Activity extends MyActivity implements View.OnClickListener {
         bt_exp4_dialog_insert = (Button) dialogView.findViewById(R.id.bt_exp4_dialog_insert);
 
         final AlertDialog dialog = new AlertDialog.Builder(this)
-                .setTitle("insert")
+                .setTitle(title)
                 .setView(dialogView)
-                .setPositiveButton("insert", null)
+                .setPositiveButton(title, null)
                 .create();
 
         dialog.show();
         dialog.getButton(AlertDialog.BUTTON_POSITIVE).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (!submit()) return;
+                switch (flag) {
+                    case  1:
+                        if (!submit()) return;
+                        break;
+                    case  2:
+                        if (!submit2()) return;
+                        break;
+                    case  3:
+                        if (!submit3()) return;
+                        break;
+                }
+
+
+
                 tv_exp4_database_log.setText(sbLog);
                 dialog.dismiss();
             }
@@ -188,6 +221,111 @@ public class Exp4Activity extends MyActivity implements View.OnClickListener {
         } catch (Exception e) {
             //e.printStackTrace();
             Toast.makeText(Exp4Activity.this, "insert failed", Toast.LENGTH_SHORT).show();
+            return false;
+        }
+        //mySQLiteOpenHelper.insertStu("2","3","4","5");
+
+
+        return true;
+    }
+
+
+    private boolean submit2() {
+        // validate
+        List<String> conditions = new ArrayList<>();
+        List<String> realConditions = new ArrayList<>();
+        String id = et_exp4_dialog_id.getText().toString().trim();
+        if (TextUtils.isEmpty(id)) {
+            Toast.makeText(this, "输入id", Toast.LENGTH_SHORT).show();
+            return false;
+        }
+
+        String name = et_exp4_dialog_name.getText().toString().trim();
+        String age = et_exp4_dialog_age.getText().toString().trim();
+        String city = et_exp4_dialog_city.getText().toString().trim();
+        // TODO validate success, do something
+        Log.e("))))))))", id + name + age + city);
+
+        conditions.add(name);
+        conditions.add(age);
+        conditions.add(city);
+
+
+        for (int i = 0 ; i< conditions.size();++i){
+            if(conditions.get(i).length() >0){
+                realConditions.add(" , ");
+                realConditions.add(MySQLiteOpenHelper.columns[i+1] + " = " + "'"+conditions.get(i)+"'");
+            }
+        }
+        if(realConditions.size()<=0){
+            Toast.makeText(Exp4Activity.this, "至少填写一项修改的值", Toast.LENGTH_SHORT).show();
+            return false;
+        }
+        if(realConditions.size()>0)realConditions.remove(0);
+
+        StringBuffer sbConditions = new StringBuffer();
+        for(String s : realConditions)
+            sbConditions.append(s);
+        sbConditions.append(" where id = "+id);
+        //Toast.makeText(Exp4Activity.this, id + name + age + city, Toast.LENGTH_SHORT).show();
+        Log.e("))-----)", sbConditions.toString());
+        sbLog.append("update Student set "+sbConditions
+                + "\n");
+        try {
+            mySQLiteOpenHelper.updateStu(sbConditions.toString());
+        } catch (Exception e) {
+            //e.printStackTrace();
+            Toast.makeText(Exp4Activity.this, "update failed", Toast.LENGTH_SHORT).show();
+            return false;
+        }
+        //mySQLiteOpenHelper.insertStu("2","3","4","5");
+
+
+        return true;
+    }
+
+
+    private boolean submit3() {
+        // validate
+        List<String> conditions = new ArrayList<>();
+        List<String> realConditions = new ArrayList<>();
+        String id = et_exp4_dialog_id.getText().toString().trim();
+        String name = et_exp4_dialog_name.getText().toString().trim();
+        String age = et_exp4_dialog_age.getText().toString().trim();
+        String city = et_exp4_dialog_city.getText().toString().trim();
+
+        conditions.add(id);
+        conditions.add(name);
+        conditions.add(age);
+        conditions.add(city);
+
+
+        for (int i = 0 ; i< conditions.size();++i){
+            if(conditions.get(i).length() >0){
+                realConditions.add("and");
+                realConditions.add("where "+MySQLiteOpenHelper.columns[i] + " = " + "'"+conditions.get(i)+"'");
+            }
+        }
+
+        if(realConditions.size()>0)realConditions.remove(0);
+
+
+        StringBuffer sbConditions = new StringBuffer();
+        for(String s : realConditions)
+            sbConditions.append(s);
+        // TODO validate success, do something
+        Log.e("))))))))", id + name + age + city);
+        Log.e("))))))))", sbConditions.toString());
+        //Toast.makeText(Exp4Activity.this, id + name + age + city, Toast.LENGTH_SHORT).show();
+
+
+        sbLog.append("delete from Student "
+                +sbConditions+"\n");
+        try {
+            mySQLiteOpenHelper.deleteStu(sbConditions.toString());
+        } catch (Exception e) {
+            e.printStackTrace();
+            Toast.makeText(Exp4Activity.this, "delete failed", Toast.LENGTH_SHORT).show();
             return false;
         }
         //mySQLiteOpenHelper.insertStu("2","3","4","5");
